@@ -8,7 +8,11 @@ const port = process.env.PORT||5000;
 
 const cors = require("cors");
 app.use(cors())
-var io = require("socket.io")(http) 
+var io = require("socket.io")(http, {
+    cors: {
+        origin: '*',
+    }
+}) 
 
 app.get('/', (req, res)=>{
     res.send("Connection is established")
