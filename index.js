@@ -19,9 +19,39 @@ app.get('/', (req, res)=>{
 })
 
 app.get("/up", (req, res)=>{
-    io.sockets.emit("up", {data:"up"})
+    io.sockets.emit("direction", {data:"e"})
     res.send({
-        status: "done"
+        status: "e"
+    })
+})
+app.get("/down", (req, res)=>{
+    io.sockets.emit("direction", {data:"q"})
+    res.send({
+        status: "q"
+    })
+})
+app.get("/forward", (req, res)=>{
+    io.sockets.emit("direction", {data:"w"})
+    res.send({
+        status: "w"
+    })
+})
+app.get("/backward", (req, res)=>{
+    io.sockets.emit("direction", {data:"s"})
+    res.send({
+        status: "s"
+    })
+})
+app.get("/left", (req, res)=>{
+    io.sockets.emit("direction", {data:"a"})
+    res.send({
+        status: "a"
+    })
+})
+app.get("/right", (req, res)=>{
+    io.sockets.emit("direction", {data:"d"})
+    res.send({
+        status: "d"
     })
 })
 
