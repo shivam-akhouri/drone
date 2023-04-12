@@ -4,6 +4,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 var http = require("http").Server(app, path="/socket.io")
+const port = process.env.port || PORT;
+
 const cors = require("cors");
 app.use(cors())
 var io = require("socket.io")(http, {
@@ -30,6 +32,6 @@ io.on("connection", (socket)=>{
     })
 })
 
-http.listen(3000, ()=>{
+http.listen(port, ()=>{
     console.log("[LOG]:Server ready on port 3000")
 })
