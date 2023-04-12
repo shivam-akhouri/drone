@@ -3,7 +3,7 @@ var express = require("express")
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var http = require("http").Server(app, path="/socket.io")
+var http = require("http").Server(app)
 const port = process.env.port || PORT;
 
 const cors = require("cors");
