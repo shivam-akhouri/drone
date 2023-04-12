@@ -3,8 +3,8 @@ var express = require("express")
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var http = require("http").Server(app)
-const port = process.env.port || PORT;
+var http = require("http").Server(app);
+const port = process.env.port;
 
 const cors = require("cors");
 app.use(cors())
