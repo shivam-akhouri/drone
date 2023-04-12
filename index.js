@@ -4,7 +4,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 var http = require("http").Server(app);
-const port = process.env.port;
+const port = process.env.PORT||5000;
 
 const cors = require("cors");
 app.use(cors())
