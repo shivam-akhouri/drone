@@ -55,23 +55,46 @@ app.get("/right", (req, res)=>{
     })
 })
 app.get("/arm",(req, res)=>{
-    io.sockets.emit("direction", {data: "arm"})
+    io.sockets.emit("utility", {data: "arm"})
     console.log(req.params)
     res.send({
         status: "arm",
         user: req.query.user
     })
 })
+app.get("/takeoff",(req, res)=>{
+    io.sockets.emit("utility", {data: "takeoff"})
+    console.log(req.params)
+    res.send({
+        status: "takeoff",
+        user: req.query.user
+    })
+})
+app.get("/land",(req, res)=>{
+    io.sockets.emit("utility", {data: "land"})
+    console.log(req.params)
+    res.send({
+        status: "land",
+        user: req.query.user
+    })
+})
 app.get("/disarm",(req, res)=>{
-    io.sockets.emit("direction", {data: "disarm"})
+    io.sockets.emit("utility", {data: "disarm"})
     res.send({
         status: "disarm"
     })
 })
 app.get("/irrigation",(req, res)=>{
-    io.sockets.emit("direction", {data:"irrigate"})
+    io.sockets.emit("utility", {data:{"code":"irritgate",value: req.query.val}})
     res.send({
-        status:"irrigate"
+        status:"irrigate",
+        value: req.query.val
+    })
+})
+app.get("/stop", (req, res)=>{
+    io.sockets.emit("utility", {data:{"code":"stop",value: 0}})
+    res.send({
+        stats:"stop"
     })
 })
 
