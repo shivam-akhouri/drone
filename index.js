@@ -54,6 +54,24 @@ app.get("/right", (req, res)=>{
         status: "d"
     })
 })
+app.get("/arm",(req, res)=>{
+    io.sockets.emit("direction", {data: "arm"})
+    res.send({
+        status: "arm"
+    })
+})
+app.get("/disarm",(req, res)=>{
+    io.sockets.emit("direction", {data: "disarm"})
+    res.send({
+        status: "disarm"
+    })
+})
+app.get("/irrigate",(req, res)=>{
+    io.socket.emit("direction", {data:"irrigate"})
+    res.send({
+        status:"irrigate"
+    })
+})
 
 io.on("connection", (socket)=>{
     console.log("A user connected")
