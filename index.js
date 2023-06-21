@@ -66,7 +66,7 @@ app.get("/disarm",(req, res)=>{
         status: "disarm"
     })
 })
-app.get("/irrigate",(req, res)=>{
+app.get("/irrigation",(req, res)=>{
     io.socket.emit("direction", {data:"irrigate"})
     res.send({
         status:"irrigate"
