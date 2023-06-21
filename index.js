@@ -56,8 +56,10 @@ app.get("/right", (req, res)=>{
 })
 app.get("/arm",(req, res)=>{
     io.sockets.emit("direction", {data: "arm"})
+    console.log(req.params)
     res.send({
-        status: "arm"
+        status: "arm",
+        user: req.query.user
     })
 })
 app.get("/disarm",(req, res)=>{
@@ -67,7 +69,7 @@ app.get("/disarm",(req, res)=>{
     })
 })
 app.get("/irrigation",(req, res)=>{
-    io.socket.emit("direction", {data:"irrigate"})
+    io.sockets.emit("direction", {data:"irrigate"})
     res.send({
         status:"irrigate"
     })
