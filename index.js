@@ -85,16 +85,16 @@ app.get("/disarm",(req, res)=>{
     })
 })
 app.get("/irrigation",(req, res)=>{
-    io.sockets.emit("utility", {data:{"code":"irritgate",value: req.query.val}})
+    io.sockets.emit("utility", {data:"irritgate",value: req.query.val})
     res.send({
         status:"irrigate",
         value: req.query.val
     })
 })
 app.get("/stop", (req, res)=>{
-    io.sockets.emit("utility", {data:{"code":"stop",value: 0}})
+    io.sockets.emit("utility", {data:"stop",value: 0})
     res.send({
-        stats:"stop"
+        stats: "stop"
     })
 })
 
